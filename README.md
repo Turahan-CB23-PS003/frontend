@@ -1,3 +1,3 @@
-https://turahan.netlify.app/
+https://turahan-cb23-ps003.github.io/frontend/
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2f431c55-4dfe-4abd-9655-46460d21665c/deploy-status)](https://app.netlify.com/sites/turahan/deploys)
+[![pages-build-deployment](https://github.com/Turahan-CB23-PS003/frontend/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Turahan-CB23-PS003/frontend/actions/workflows/pages/pages-build-deployment)
