@@ -6,11 +6,11 @@ export default function MatchingPage() {
   return (
     <>
     <WithAction />
-    // CTA (
+    {/* CTA (
         - Daftar item makanan yang tersedia di sisi kiri
         - Daftar entitas yang meminta di sisi kanan)
-    // filter searching lokasi
-    // 
+    filter searching lokasi
+    */}
     </>
   );
 }
