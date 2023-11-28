@@ -1,6 +1,6 @@
 'use client'
 
-import Dashboard from "./Dashboard/Dashboard"
+import Dashboard from "../components/Dashboard/Dashboard"
 
 export default function UserDashboard() {
   return (
