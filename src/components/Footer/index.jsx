@@ -17,7 +17,7 @@ const Footer = () => {
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
-      <Container as={Stack} maxW={"6xl"} py={10}>
+      <Container as={Stack} maxW={"7xl"} py={10}>
         <SimpleGrid
           templateColumns={{ sm: "1fr", md: "3fr 2fr" }}
           spacing={24}
@@ -35,7 +35,7 @@ const Footer = () => {
               © {`${new Date().getFullYear()}`} Turahan. All rights reserved
             </Text>
           </Stack>
-          <section className="collapse md:visible" >
+          <section className="hidden md:block" >
             <FooterStack/>
           </section>
         </SimpleGrid>

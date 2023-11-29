@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Turahan-CB23-PS003.github.io/frontend",
+  "homepage": "https://Turahan-CB23-PS003.github.io/frontend/#",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=./",
