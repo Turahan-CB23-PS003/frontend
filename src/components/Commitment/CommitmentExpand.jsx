@@ -9,7 +9,7 @@ import {
 
 const CommitmentExpand = () => {
   return (
-    <Accordion defaultIndex={[0]} allowMultiple className="mt-5">
+    <Accordion allowMultiple className="mt-5">
       <AccordionItem>
         <h2>
           <AccordionButton>
