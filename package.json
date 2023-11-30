@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.5",
     "hamburger-react": "^2.5.0",
     "prop-types": "^15.8.1",

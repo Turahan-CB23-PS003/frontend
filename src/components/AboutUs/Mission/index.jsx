@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Container } from "@chakra-ui/react";
 
-const Missions = ({ image, title, children }) => {
+const Mission = ({ image, title, children }) => {
   return (
     <Container maxW="7xl" className="pt-24">
       <section className="block md:grid grid-cols-2 gap-12 lg:gap-28">
@@ -17,10 +17,10 @@ const Missions = ({ image, title, children }) => {
   );
 };
 
-Missions.propTypes = {
+Mission.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
 };
 
-export default Missions;
+export default Mission;

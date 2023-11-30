@@ -1,7 +1,7 @@
-import HeroFirst from "../components/Hero/HeroFirst";
-import HeroSecond from "../components/Hero/HeroSecond";
-import Commitment from "../components/Commitment";
-import Missions from "../components/Missions";
+import HeroFirst from "../components/AboutUs/Hero/HeroFirst";
+import HeroSecond from "../components/AboutUs/Hero/HeroSecond";
+import Commitment from "../components/AboutUs/Commitment";
+import Mission from "../components/AboutUs/Mission";
 
 const MissionsList = [
   {
@@ -34,7 +34,7 @@ const AboutUs = () => {
       <section className="mb-24">
         {MissionsList.map((mission) => {
           return (
-            <Missions
+            <Mission
               key={mission.title}
               image={mission.image}
               title={mission.title}
@@ -46,7 +46,7 @@ const AboutUs = () => {
                   </p>
                 );
               })}
-            </Missions>
+            </Mission>
           );
         })}
       </section>

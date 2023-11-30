@@ -37,9 +37,9 @@ const HeaderDrawer = ({ isOpen, onClose, btnRef, children }) => {
 };
 
 HeaderDrawer.propTypes = {
-  isOpen: PropTypes.func,
+  isOpen: PropTypes.bool,
   onClose: PropTypes.func,
-  btnRef: PropTypes.func,
+  btnRef: PropTypes.object,
   children: PropTypes.node,
 };
 

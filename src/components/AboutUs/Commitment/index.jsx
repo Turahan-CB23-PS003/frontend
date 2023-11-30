@@ -6,7 +6,7 @@ const Commitment = () => {
     <div className="py-20">
       <Container maxW="7xl">
         <Text >
-          <h2 className="font-semibold text-4xl md:text-6xl mb-5">
+          <h2 className="font-semibold text-4xl md:text-5xl mb-5">
             Berdayakan sisa, kurangi limbah makanan bersama-sama!
           </h2>
           <p className="font-light text-md">
