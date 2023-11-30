@@ -8,8 +8,8 @@ const HeaderLinks = [
     href: "#",
   },
   {
-    label: "Legal",
-    href: "#",
+    label: "About Us",
+    href: "/about",
   },
 ];
 

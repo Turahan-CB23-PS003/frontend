@@ -24,7 +24,9 @@ const Header = () => {
         <Container maxW={"7xl"}>
           <nav className="flex justify-between">
             <section className="flex justify-center items-center">
-              <FooterLogo className="mr-10" />
+              <Link to="/">
+                <FooterLogo className="mr-10" />
+              </Link>
               <div className="hidden md:flex justify-center items-center">
                 {HeaderLinks.map((link) => {
                   return (
