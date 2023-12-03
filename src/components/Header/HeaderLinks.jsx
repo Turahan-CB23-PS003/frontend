@@ -1,11 +1,11 @@
 const HeaderLinks = [
   {
-    label: "Help Center",
-    href: "#",
+    label: "Cari Makanan",
+    href: "meals",
   },
   {
-    label: "Terms of Service",
-    href: "#",
+    label: "Cari Tempat",
+    href: "retailers",
   },
   {
     label: "About Us",

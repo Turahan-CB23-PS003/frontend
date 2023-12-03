@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <header>
-      <header className="shadow-sm py-5">
+      <header className="shadow-sm py-3 md:py-5">
         <Container maxW={"7xl"}>
           <nav className="flex justify-between">
             <section className="flex justify-center items-center">
