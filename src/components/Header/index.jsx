@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import {
   Container,
   Divider,
@@ -9,7 +9,6 @@ import {
 import { useRef } from "react";
 import { FiSearch } from "react-icons/fi";
 import Hamburger from "hamburger-react";
-import HeaderPopover from "./HeaderPopover";
 import HeaderDrawer from "./HeaderDrawer";
 import HeaderLinks from "./HeaderLinks";
 import FooterLogo from "../Footer/FooterLogo";
@@ -18,46 +17,56 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
+  const location = useLocation();
+  const currentLink = location.pathname;
+
+  console.log(currentLink.substring(1));
+
+  const LinkStyle =
+    "text-lg mx-4 font-semibold transition-all ease-in duration-100";
+
   return (
     <header>
-      <header className="shadow-sm py-3 md:py-5">
-        <Container maxW={"7xl"}>
+      <div className="shadow-sm py-3 md:py-5 px-2 md:px-0">
+        <Container maxW={"6xl"}>
           <nav className="flex justify-between">
             <section className="flex justify-center items-center">
               <Link to="/">
                 <FooterLogo className="mr-10" />
               </Link>
-              <div className="hidden md:flex justify-center items-center">
+              <div className="hidden lg:flex justify-center items-center">
                 {HeaderLinks.map((link) => {
                   return (
-                    <Link
+                    <NavLink
                       to={link.href}
                       key={link.label}
-                      className="text-lg mx-4 font-semibold text-[#4A5568] hover:text-[#1A202C]"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `${LinkStyle} text-[#48AF4A]`
+                          : `${LinkStyle} text-[#4A5568] hover:text-[#48AF4A]`
+                      }
                     >
                       {link.label}
-                    </Link>
+                    </NavLink>
                   );
                 })}
               </div>
             </section>
             <section className="flex justify-center items-center">
-              <div className="hidden md:flex justify-center items-center">
-                <HeaderPopover>
-                  <div className="flex justify-center items-center">
-                    <Input placeholder="Basic usage" className="mr-2" />
-                    <Button variant="ghost">
-                      <FiSearch className="text-2xl text-[#4B5669] cursor-pointer" />
-                    </Button>
-                  </div>
-                </HeaderPopover>
+              <div className="hidden lg:flex justify-center items-center">
+                <div className="flex justify-center items-center">
+                  <Input placeholder="Basic usage" className="mr-2" />
+                  <Button variant="outline">
+                    <FiSearch className="text-2xl text-[#4B5669] cursor-pointer" />
+                  </Button>
+                </div>
               </div>
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <Button className="ml-3" variant="outline">
                   Login
                 </Button>
               </div>
-              <div ref={btnRef} onClick={onOpen} className="block md:hidden">
+              <div ref={btnRef} onClick={onOpen} className="block lg:hidden">
                 <Button variant="ghost">
                   <Hamburger color="#4B5669" toggled={isOpen} toggle={onOpen} />
                 </Button>
@@ -66,13 +75,18 @@ const Header = () => {
                 <div className="flex flex-col">
                   {HeaderLinks.map((link) => {
                     return (
-                      <Link
+                      <NavLink
+                        onClick={onClose}
                         to={link.href}
                         key={link.label}
-                        className="text-lg mt-5 font-semibold text-[#4A5568] hover:text-[#1A202C]"
+                        className={({ isActive }) =>
+                          isActive
+                            ? `${LinkStyle} text-lg mt-5 font-semibold text-[#48AF4A]`
+                            : `${LinkStyle} text-lg mt-5 font-semibold text-[#4A5568] hover:text-[#48AF4A]`
+                        }
                       >
                         {link.label}
-                      </Link>
+                      </NavLink>
                     );
                   })}
                 </div>
@@ -86,7 +100,7 @@ const Header = () => {
             </section>
           </nav>
         </Container>
-      </header>
+      </div>
       <Divider />
     </header>
   );

@@ -17,7 +17,7 @@ const Footer = () => {
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
-      <Container as={Stack} maxW={"7xl"} py={10}>
+      <Container as={Stack} maxW={"6xl"} py={10} px={3} className="px-2 md:px-0">
         <SimpleGrid
           templateColumns={{ sm: "1fr", md: "3fr 2fr" }}
           spacing={24}

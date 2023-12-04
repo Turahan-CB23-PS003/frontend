@@ -11,11 +11,22 @@ import {
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 
+{
+  /* <HeaderPopover>
+        <div className="flex justify-center items-center">
+          <Input placeholder="Basic usage" className="mr-2" />
+          <Button variant="ghost">
+            <FiSearch className="text-2xl text-[#4B5669] cursor-pointer" />
+          </Button>
+        </div>
+      </HeaderPopover> */
+}
+
 const HeaderPopover = ({ children }) => {
   return (
-    <Popover>
+    <Popover defaultIsOpen>
       <PopoverTrigger>
-        <Button variant='ghost'>
+        <Button variant="ghost">
           <FiSearch className="text-2xl text-[#4B5669] cursor-pointer" />
         </Button>
       </PopoverTrigger>
@@ -23,9 +34,7 @@ const HeaderPopover = ({ children }) => {
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverHeader>Search</PopoverHeader>
-        <PopoverBody>
-          {children}
-        </PopoverBody>
+        <PopoverBody>{children}</PopoverBody>
       </PopoverContent>
     </Popover>
   );
