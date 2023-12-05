@@ -89,7 +89,7 @@ const Retailers = () => {
         </Button>
       </div>
       {isLoading ? <Loading /> : <Component />}
-      {retailersDataFiltered.length === 0 && (
+      {(retailersDataFiltered.length === 0 && !isLoading) && (
         <p className="text-lg">Tidak ada tempat yang ditemukan</p>
       )}
     </Container>

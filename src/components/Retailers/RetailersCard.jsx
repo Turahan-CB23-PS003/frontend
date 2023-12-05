@@ -5,7 +5,7 @@ import {
   CardFooter,
   Card as ChakraCard,
   Stack,
-  Button,
+  Badge,
   Divider,
 } from "@chakra-ui/react";
 import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
@@ -34,28 +34,39 @@ const RetailersCard = ({
     close_time,
   )} WIB`;
 
-  const statusColor = status === "active" ? "teal" : "tomato";
+  const statusColor = (status) => {
+    const statusHandler = status === "active";
+    return {
+      color: statusHandler ? "green" : "red",
+      status: statusHandler ? "Buka" : "Tutup",
+    };
+  };
 
   return (
-    <ChakraCard boxShadow="md" className="mb-5 md:mb-0 hover:scale-105 transition-all ease-in-out duration-300">
-      <div
-        className="relative bg-no-repeat bg-center bg-cover pt-32 pb-3 rounded-t-lg px-5"
-        style={{
-          backgroundImage: `url(${retailerImage})`,
-        }}
-      >
-        <div className="flex justify-end">
-          <Link to={`./${id}`}>
-            <Button colorScheme={statusColor} variant="solid">
-              {status === "active" ? "Buka" : "Tutup"}
-            </Button>
-          </Link>
+    <ChakraCard
+      boxShadow="md"
+      className="mb-5 md:mb-0 hover:scale-105 transition-all ease-in-out duration-300"
+    >
+      <Link to={`./${id}`}>
+        <div
+          className="relative bg-no-repeat bg-center bg-cover pt-32 pb-3 rounded-t-lg px-5"
+          style={{
+            backgroundImage: `url(${retailerImage})`,
+          }}
+        >
+          <div className="flex justify-end">
+            <Badge colorScheme={statusColor(status).color}>
+              {statusColor(status).status}
+            </Badge>
+          </div>
         </div>
-      </div>
+      </Link>
       <CardBody>
         <Stack mt="2" spacing="3" className="flex flex-col justify-between">
           <Link to={`./${id}`}>
-            <h2 className="text-xl font-semibold hover:text-slate-800 ">{name}</h2>
+            <h2 className="text-xl font-semibold hover:text-[#48AF4A] transition-all ease-in duration-100">
+              {name}
+            </h2>
           </Link>
           <div className="flex items-center justify-start">
             <FaRegClock />

@@ -88,7 +88,7 @@ const Meals = () => {
         </Button>
       </div>
       {isLoading ? <Loading /> : <Component />}
-      {mealsDataFiltered.length === 0 && (
+      {(mealsDataFiltered.length === 0 && !isLoading) && (
         <p className="text-lg">Tidak ada makanan yang ditemukan</p>
       )}
       
