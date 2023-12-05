@@ -26,6 +26,19 @@ const MissionsList = [
 ];
 
 const About = () => {
+  const description = (description) => {
+    if (!description) {
+      return <p className="text-lg mb-5">Tidak ada deskripsi</p>;
+    }
+    return description.split(/\n\n?/).map((item, index) => {
+      return (
+        <p key={index} className="text-lg mb-5">
+          {item}
+        </p>
+      );
+    });
+  };
+
   return (
     <Container maxW="6xl" className="mt-10 md:mt-20">
       <Fade left>
@@ -44,13 +57,7 @@ const About = () => {
             right={fadeDirection === "right"}
           >
             <Mission image={mission.image} title={mission.title}>
-              {mission.description.split("\n").map((child, index) => {
-                return (
-                  <p className="mb-3" key={index}>
-                    {child}
-                  </p>
-                );
-              })}
+              {description(mission.description)}
             </Mission>
           </Fade>
         );

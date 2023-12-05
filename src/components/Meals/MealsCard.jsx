@@ -105,7 +105,7 @@ const MealsCard = ({
       </div>
       <CardBody>
         <Stack spacing="3">
-          <Link to={`./${id}`}>
+          <Link to={`/meals/${id}`}>
             <h3 className="font-semibold text-lg hover:text-[#48AF4A] transition-all ease-in duration-100">
               {name}
             </h3>

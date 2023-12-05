@@ -63,7 +63,7 @@ const RetailersCard = ({
       </Link>
       <CardBody>
         <Stack mt="2" spacing="3" className="flex flex-col justify-between">
-          <Link to={`./${id}`}>
+          <Link to={`/retailers/${id}`}>
             <h2 className="text-xl font-semibold hover:text-[#48AF4A] transition-all ease-in duration-100">
               {name}
             </h2>

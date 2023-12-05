@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import MealsPage from "./pages/MealsPage";
 import MealDetailPage from "./pages/MealDetailPage";
 import RetailersPage from "./pages/RetailersPage";
+import RetailerDetailPage from "./pages/RetailerDetailPage";
 import MainLayout from "./layouts/MainLayout";
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="meals" element={<MealsPage />} />
           <Route path="meals/:mealId" element={<MealDetailPage />} />
           <Route path="retailers" element={<RetailersPage />} />
+          <Route path="retailers/:retailerId" element={<RetailerDetailPage />} />
           <Route path="about" element={<AboutPage />} />
         </Route>
       </Routes>

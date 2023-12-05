@@ -26,6 +26,19 @@ const MissionsList = [
 ];
 
 const AboutUs = () => {
+  const description = (description) => {
+    if (!description) {
+      return <p className="text-lg mb-5">Tidak ada deskripsi</p>;
+    }
+    return description.split(/\n\n?/).map((item, index) => {
+      return (
+        <p key={index} className="text-lg mb-5">
+          {item}
+        </p>
+      );
+    });
+  };
+
   return (
     <section>
       <HeroFirst />
@@ -39,13 +52,7 @@ const AboutUs = () => {
               image={mission.image}
               title={mission.title}
             >
-              {mission.description.split("/n").map((child, index) => {
-                return (
-                  <p className="font-light text-md mb-3" key={index}>
-                    {child}
-                  </p>
-                );
-              })}
+              {description(mission.description)}
             </Mission>
           );
         })}
