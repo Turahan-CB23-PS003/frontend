@@ -13,6 +13,7 @@ import HeaderPopover from "./HeaderPopover";
 import HeaderDrawer from "./HeaderDrawer";
 import HeaderLinks from "./HeaderLinks";
 import FooterLogo from "../Footer/FooterLogo";
+import { Link as ChakraLink } from "@chakra-ui/react";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,9 +54,11 @@ const Header = () => {
                 </HeaderPopover>
               </div>
               <div className="hidden md:block">
-                <Button className="ml-3" variant="outline">
-                  Login
-                </Button>
+                <ChakraLink as={Link} to="login">
+                  <Button className="ml-3" variant="outline">
+                    Login
+                  </Button>
+                </ChakraLink>
               </div>
               <div ref={btnRef} onClick={onOpen} className="block md:hidden">
                 <Button variant="ghost">

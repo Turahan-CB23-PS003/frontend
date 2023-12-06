@@ -4,6 +4,7 @@ import AboutUs from "./pages/AboutUs";
 import MealsPage from "./pages/MealsPage";
 import RetailersPage from "./pages/RetailersPage";
 import MainLayout from "./layouts/MainLayout";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="meals" element={<MealsPage />} />
           <Route path="retailers" element={<RetailersPage />} />
           <Route path="about" element={<AboutUs />} />
+          <Route path="login" element={<LoginPage />} />
         </Route>
       </Routes>
     </HashRouter>
