@@ -98,7 +98,7 @@ const RetailerDetail = ({ retailerId }) => {
     }
 
     return (
-      <section className="block md:grid grid-cols-3 gap-6">
+      <section className="block md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {datas.map((data) => {
           return <MealsCard key={data.id} {...data} />;
         })}
@@ -111,24 +111,19 @@ const RetailerDetail = ({ retailerId }) => {
       <section>
         <Breadcrumb
           spacing="8px"
-          separator={<h4 className="text-lg font-semibold">{"•"}</h4>}
+          separator={<h4 className="text-xs lg:text-lg font-semibold">{"•"}</h4>}
           className="mb-4"
         >
           <BreadcrumbItem>
-            <Link to="/">
-              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">Home</h4>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
             <Link to="/retailers">
-              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#48AF4A]">
                 Cari Tempat
               </h4>
             </Link>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
             <Link to="./">
-              <h4 className="text-lg font-semibold text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold text-[#48AF4A]">
                 {retailerData.name}
               </h4>
             </Link>

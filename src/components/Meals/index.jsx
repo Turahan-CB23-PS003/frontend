@@ -61,7 +61,7 @@ const Meals = () => {
 
   const Component = () => {
     return (
-      <section className="block md:grid grid-cols-3 gap-6">
+      <section className="block md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mealsDataFiltered.map((meal) => {
           return <MealsCard key={meal.id} {...meal} />;
         })}

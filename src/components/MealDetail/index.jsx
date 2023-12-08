@@ -121,33 +121,19 @@ const MealDetail = ({ mealId }) => {
       <section>
         <Breadcrumb
           spacing="8px"
-          separator={<h4 className="text-lg font-semibold">{"•"}</h4>}
+          separator={<h4 className="text-xs lg:text-lg font-semibold">{"•"}</h4>}
           className="mb-4"
         >
           <BreadcrumbItem>
-            <Link to="/">
-              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
-                Home
-              </h4>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
             <Link to="/meals">
-              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#48AF4A]">
                 Cari Makanan
-              </h4>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Link to={`/retailers/${retailerData.id}`}>
-              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
-                {retailerData.name}
               </h4>
             </Link>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
             <Link to={`/meals/${mealData.id}`}>
-              <h4 className="text-lg font-semibold text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold text-[#48AF4A]">
                 {mealData.name}
               </h4>
             </Link>
