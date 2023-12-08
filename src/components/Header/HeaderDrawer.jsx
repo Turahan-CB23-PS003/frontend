@@ -10,8 +10,15 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
-const HeaderDrawer = ({ isOpen, onClose, btnRef, children }) => {
+const HeaderDrawer = ({ isOpen, onClose, btnRef, children, loginPath }) => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    // Navigasi ke halaman login dengan path yang ditentukan
+    navigate(loginPath || "login");
+  };
   return (
     <Drawer
       isOpen={isOpen}
@@ -29,7 +36,7 @@ const HeaderDrawer = ({ isOpen, onClose, btnRef, children }) => {
         <DrawerBody>{children}</DrawerBody>
 
         <DrawerFooter>
-          <Button className="mt-5">Login</Button>
+          <Button className="mt-5" onClick={handleLoginClick}>Login</Button>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
@@ -41,6 +48,7 @@ HeaderDrawer.propTypes = {
   onClose: PropTypes.func,
   btnRef: PropTypes.object,
   children: PropTypes.node,
+  loginPath: PropTypes.string,
 };
 
 export default HeaderDrawer;

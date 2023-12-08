@@ -1,12 +1,12 @@
 import { Box, Flex } from "@chakra-ui/react";
 
-import Details from '../components/Login/details'; // Sesuaikan dengan path yang benar
+import Login from './src/components/Login/Details'; 
 
 const LoginPage = () => {
   return (
     <Flex>
       <Box as="body" m="auto">
-        <Details />
+        <Login />
       </Box>
     </Flex>
   );

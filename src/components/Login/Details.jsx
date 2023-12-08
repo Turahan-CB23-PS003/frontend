@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import LogoImage from './LoginLogo';
 import {
   Flex,
@@ -14,7 +15,7 @@ import {
   FormHelperText,
   InputRightElement
 } from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
+import { FaUserAlt, FaLock, FaEye, FaEyeSlash  } from "react-icons/fa";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -62,11 +63,11 @@ const Login = () => {
                   </InputLeftElement>
                   <Input
                     type={showPassword ? "text" : "password"}
-                    placeholder="Password"
+                    placeholder="password"
                   />
-                  <InputRightElement width="4.5rem">
+                  <InputRightElement width="5.7rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? "Hide" : "Show"}
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
@@ -89,7 +90,7 @@ const Login = () => {
       </Stack>
       <Box>
         Belum punya akun?Yuk{" "}
-        <Link color="blue" href="#">
+        <Link color="blue" to="/register" as={RouterLink}>
           Daftar!
         </Link>
       </Box>

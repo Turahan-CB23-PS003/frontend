@@ -53,7 +53,7 @@ const Header = () => {
                 </HeaderPopover>
               </div>
               <div className="hidden md:block">
-                <Button className="ml-3" variant="outline">
+                <Button as={Link} to="login" className="ml-3" variant="outline">
                   Login
                 </Button>
               </div>
