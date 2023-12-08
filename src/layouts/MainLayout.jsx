@@ -4,10 +4,14 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <section>
+    <section className="flex flex-col min-h-screen">
       <Header />
-      <Outlet />
-      <Footer />
+      <section className="pt-20">
+        <Outlet />
+      </section>
+      <section className="mt-auto">
+        <Footer />
+      </section>
     </section>
   );
 };

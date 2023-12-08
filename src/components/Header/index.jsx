@@ -19,7 +19,7 @@ const Header = () => {
     "text-lg mx-4 font-semibold transition-all ease-in duration-100";
 
   return (
-    <header>
+    <header className="fixed top-0 left-0 right-0 bg-white z-50">
       <div className="shadow-sm py-3 md:py-5 px-2 md:px-0">
         <Container maxW={"6xl"}>
           <nav className="flex justify-between">

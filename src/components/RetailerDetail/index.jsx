@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Container, Spinner, Badge, Divider } from "@chakra-ui/react";
+import {
+  Container,
+  Spinner,
+  Badge,
+  Divider,
+  Breadcrumb,
+  BreadcrumbItem,
+} from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
 import axios from "axios";
@@ -102,6 +109,31 @@ const RetailerDetail = ({ retailerId }) => {
   const Component = () => {
     return (
       <section>
+        <Breadcrumb
+          spacing="8px"
+          separator={<h4 className="text-lg font-semibold">{"•"}</h4>}
+          className="mb-4"
+        >
+          <BreadcrumbItem>
+            <Link to="/">
+              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">Home</h4>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link to="/retailers">
+              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+                Cari Tempat
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <Link to="./">
+              <h4 className="text-lg font-semibold text-[#48AF4A]">
+                {retailerData.name}
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+        </Breadcrumb>
         <img
           src={retailerImage}
           alt={retailerData.name}
@@ -134,9 +166,7 @@ const RetailerDetail = ({ retailerId }) => {
         </section>
         {description(retailerData.description)}
         <Divider />
-        <h2 className="font-semibold text-2xl my-6">
-          Daftar Makanan
-        </h2>
+        <h2 className="font-semibold text-2xl my-6">Daftar Makanan</h2>
         {resMeals(mealsData)}
       </section>
     );

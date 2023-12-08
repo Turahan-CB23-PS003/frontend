@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Container, Spinner, Badge } from "@chakra-ui/react";
+import {
+  Container,
+  Spinner,
+  Badge,
+  Breadcrumb,
+  BreadcrumbItem,
+} from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
 import axios from "axios";
@@ -113,6 +119,40 @@ const MealDetail = ({ mealId }) => {
   const Component = () => {
     return (
       <section>
+        <Breadcrumb
+          spacing="8px"
+          separator={<h4 className="text-lg font-semibold">{"•"}</h4>}
+          className="mb-4"
+        >
+          <BreadcrumbItem>
+            <Link to="/">
+              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+                Home
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link to="/meals">
+              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+                Cari Makanan
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link to={`/retailers/${retailerData.id}`}>
+              <h4 className="text-lg font-semibold hover:text-[#48AF4A]">
+                {retailerData.name}
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <Link to={`/meals/${mealData.id}`}>
+              <h4 className="text-lg font-semibold text-[#48AF4A]">
+                {mealData.name}
+              </h4>
+            </Link>
+          </BreadcrumbItem>
+        </Breadcrumb>
         <img
           src={mealImage}
           alt={mealData.name}
