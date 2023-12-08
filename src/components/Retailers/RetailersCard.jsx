@@ -47,7 +47,7 @@ const RetailersCard = ({
       boxShadow="md"
       className="mb-5 md:mb-0 hover:scale-105 transition-all ease-in-out duration-300"
     >
-      <Link to={`./${id}`}>
+      <Link to={`/retailers/${id}`}>
         <div
           className="relative bg-no-repeat bg-center bg-cover pt-32 pb-3 rounded-t-lg px-5"
           style={{
@@ -83,7 +83,7 @@ const RetailersCard = ({
       <CardFooter className="flex items-center justify-between">
         <section className="flex items-center">
           <MdOutlineLocationOn />
-          <Link to={gmaps ? gmaps : "./"} target="_blank">
+          <Link to={gmaps ? gmaps : `/retailers/${id}`} target="_blank">
             <p className="text-sm ml-1">{location}</p>
           </Link>
         </section>

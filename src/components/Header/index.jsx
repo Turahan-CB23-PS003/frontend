@@ -1,12 +1,22 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Container, Divider, Button, useDisclosure } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import Hamburger from "hamburger-react";
 import HeaderDrawer from "./HeaderDrawer";
 import HeaderLinks from "./HeaderLinks";
 import FooterLogo from "../Footer/FooterLogo";
+import HeaderProfile from "./HeaderProfile";
+import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
+import { GlobalContext } from "../../App";
 
 const Header = () => {
+  const { userData } = useContext(GlobalContext);
+  const userImage = `${GLOBAL_ROUTE}/img/${
+    userData.image
+      ? `users/${userData.image}`
+      : "meals/pexels-engin-akyurt-1907642.jpg"
+  }`;
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
@@ -17,6 +27,26 @@ const Header = () => {
 
   const LinkStyle =
     "text-lg mx-4 font-semibold transition-all ease-in duration-100";
+
+  const NavigationLg = () => {
+    if (userData.name) {
+      return (
+        <div className="hidden lg:block">
+          <HeaderProfile userImage={userImage} userName={userData.name} />
+        </div>
+      );
+    }
+    return (
+      <div className="hidden lg:block">
+        <Button className="ml-3" variant="outline">
+          Login
+        </Button>
+        <Button className="ml-3" variant="outline">
+          Register
+        </Button>
+      </div>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white z-50">
@@ -46,18 +76,17 @@ const Header = () => {
               </div>
             </section>
             <section className="flex justify-center items-center">
-              <div className="hidden lg:block">
-                <Button className="ml-3" variant="outline">
-                  Login
-                </Button>
-                <Button className="ml-3" variant="outline">
-                  Register
-                </Button>
-              </div>
+              <NavigationLg />
               <div ref={btnRef} onClick={onOpen} className="block lg:hidden">
                 <Hamburger color="#4B5669" toggled={isOpen} toggle={onOpen} />
               </div>
-              <HeaderDrawer isOpen={isOpen} onClose={onClose} btnRef={btnRef}>
+              <HeaderDrawer
+                isOpen={isOpen}
+                onClose={onClose}
+                btnRef={btnRef}
+                userData={userData}
+                userImage={userImage}
+              >
                 <div className="flex flex-col">
                   {HeaderLinks.map((link) => {
                     return (
