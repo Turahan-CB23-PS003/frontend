@@ -13,6 +13,7 @@ import HeaderPopover from "./HeaderPopover";
 import HeaderDrawer from "./HeaderDrawer";
 import HeaderLinks from "./HeaderLinks";
 import FooterLogo from "../Footer/FooterLogo";
+import { Link as ChakraLink } from "@chakra-ui/react";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
