@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 
-import Login from './src/components/Login/Details'; 
+import Login from '../components/Login/login';
 
 const LoginPage = () => {
   return (
