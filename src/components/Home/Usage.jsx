@@ -64,7 +64,7 @@ const Usage = () => {
         <img
           src={currentImage}
           alt="img"
-          className="rounded-3xl object-cover h-full mt-10 md:mt-0"
+          className="hidden md:block rounded-3xl object-cover h-full mt-10 md:mt-0"
         />
       </div>
     </section>

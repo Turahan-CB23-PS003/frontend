@@ -1,26 +1,10 @@
-import { useState } from "react";
-import { Spinner } from "@chakra-ui/react";
-
 const Banner = () => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setIsImageLoaded(true);
-  };
-
   return (
     <section className="block lg:grid grid-cols-2 gap-20 mb-32">
       <div className="block lg:hidden mt-5 rounded-3xl">
-        {!isImageLoaded && (
-          <div className="flex justify-center items-center h-full">
-            <Spinner size="xl" />
-          </div>
-        )}
         <img
           className="rounded-3xl"
-          src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg"
-          onLoad={handleImageLoad}
-          loading="lazy"
+          src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=600"
         />
       </div>
       <div className="mt-5 text-lg">
@@ -47,18 +31,11 @@ const Banner = () => {
         </p>
       </div>
       <div className="hidden lg:block h-full">
-        {!isImageLoaded && (
-          <div className="flex justify-center items-center h-full">
-            <Spinner size="xl" />
-          </div>
-        )}
         <img
           style={{ borderRadius: "35px" }}
           className="h-full object-cover"
-          src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg"
+          src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt="Banner Image"
-          onLoad={handleImageLoad}
-          loading="lazy"
         />
       </div>
     </section>

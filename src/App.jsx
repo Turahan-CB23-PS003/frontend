@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import GLOBAL_ROUTE from "./helpers/GlobalRoute";
-import HomePage from "./pages/Homepage";
+// import HomePage from "./pages/OldHomepage";
 import AboutPage from "./pages/AboutPage";
 import MealsPage from "./pages/MealsPage";
 import MealDetailPage from "./pages/MealDetailPage";
@@ -11,7 +11,7 @@ import RetailersPage from "./pages/RetailersPage";
 import RetailerDetailPage from "./pages/RetailerDetailPage";
 import UserPage from "./pages/UserPage";
 import DashboardPage from "./pages/DashboardPage";
-import AboutUs from "./pages/AboutUs";
+import Home from "./pages/HomePage";
 import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
 
@@ -57,7 +57,7 @@ const App = () => {
       <HashRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<Home />} />
             <Route path="meals" element={<MealsPage />} />
             <Route path="meals/:mealId" element={<MealDetailPage />} />
             <Route path="retailers" element={<RetailersPage />} />
@@ -68,7 +68,6 @@ const App = () => {
             <Route path="profile" element={<UserPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="about" element={<AboutPage />} />
-            <Route path="aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

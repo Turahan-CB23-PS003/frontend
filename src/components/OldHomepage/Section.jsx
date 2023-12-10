@@ -68,6 +68,7 @@ export default function StatsGridWithImage() {
   )
 }
 
+// eslint-disable-next-line react/prop-types
 const StatsText = ({ children }) => (
   <Text as={'span'} fontWeight={700} color={'white'}>
     {children}
