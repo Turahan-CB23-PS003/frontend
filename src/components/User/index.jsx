@@ -8,13 +8,18 @@ import {
   Stack,
   Divider,
   useToast,
+  Center,
+  Show,
+  Hide,
 } from "@chakra-ui/react";
-import UserBox from "./UserBox";
 import { useState, useContext, useRef } from "react";
 import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
 import axios from "axios";
 import UserNoAuth from "./UserNoAuth";
+import UserPassword from "./UserPassword";
 import { GlobalContext } from "../../App";
+import UserAlert from "./UserAlert";
+import { Link } from "react-router-dom";
 
 const User = () => {
   const { userIdToken, userData, setUserData } = useContext(GlobalContext);
@@ -32,6 +37,11 @@ const User = () => {
         [name]: value,
       };
     });
+    if (userInput.name !== "") {
+      setCheckInput(true);
+    } else {
+      setCheckInput(false);
+    }
   };
 
   const startEditHandler = () => {
@@ -42,6 +52,7 @@ const User = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [imageFile, setImageFile] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
+  const [checkInput, setCheckInput] = useState(false);
 
   const handleFileInputChange = (event) => {
     const file = event.target.files[0];
@@ -61,7 +72,9 @@ const User = () => {
       setButtonLoading(true);
       const formData = new FormData();
       formData.append("name", userInput.name);
-      formData.append("image", imageFile);
+      if (imageFile !== "") {
+        formData.append("image", imageFile);
+      }
 
       const response = await axios.patch(
         `${GLOBAL_ROUTE}/api/v1/users/${userId}`,
@@ -105,23 +118,19 @@ const User = () => {
   };
 
   return (
-    <Container maxW="xl">
-      <Stack spacing="8">
-        <Stack spacing="6">
-          <Stack
-            spacing={{
-              base: "2",
-              md: "3",
-            }}
-            textAlign="center"
-          >
-            <h1 className="font-bold text-3xl md:text-5xl mb-5">Profilmu</h1>
-            <p className="text-lg mb-5">
-              Selamat datang kembali, {userData.name}!
-            </p>
-          </Stack>
-        </Stack>
-        <UserBox>
+    <Container maxW="6xl">
+      <h1 className="font-bold text-3xl md:text-5xl mb-5">Profilmu</h1>
+      <p className="text-lg mb-16">
+        Sesuaikan profil dan passwordmu atau pergi ke{" "}
+        <Link
+          to="/dashboard"
+          className="font-semibold text-[#48AF4A] hover:text-[#368237]"
+        >
+          Dashboard Tempat
+        </Link>
+      </p>
+      <section className="block lg:flex justify-between">
+        <Stack spacing="8" width="full">
           <Stack spacing="6">
             <Stack spacing="5">
               <FormControl>
@@ -133,6 +142,7 @@ const User = () => {
                   value={userInput.name}
                   disabled={!startEdit}
                   onChange={inputChangeHandler}
+                  required
                 />
               </FormControl>
               <FormControl>
@@ -163,7 +173,7 @@ const User = () => {
                     variant={startEdit ? "outline" : "solid"}
                     size="sm"
                     onClick={startEdit ? handleButtonClick : undefined}
-                    style={{ cursor: `${startEdit ? "pointer" : "auto"}` }}
+                    isDisabled={!startEdit}
                   >
                     Ganti Gambar
                   </Button>
@@ -179,20 +189,33 @@ const User = () => {
               >
                 Edit Profil
               </Button>
-              <Button
-                variant={startEdit ? "outline" : "solid"}
-                size="sm"
-                style={{ cursor: `${startEdit ? "pointer" : "auto"}` }}
-                onClick={startEdit ? handlePatchUserData : undefined}
-                isLoading={buttonLoading}
-                loadingText="Mengirim Data"
-              >
-                Simpan Profil
-              </Button>
+              <UserAlert
+                buttonFunction={{
+                  isDisabled: !startEdit || !checkInput,
+                  handleClick: handlePatchUserData,
+                  buttonLoading: buttonLoading,
+                }}
+                buttonDescription={{
+                  title: "Simpan Profil",
+                  description: "Apakah kamu yakin ingin menyimpan profil?",
+                  colorScheme: "green",
+                }}
+              />
             </HStack>
           </Stack>
-        </UserBox>
-      </Stack>
+        </Stack>
+        <Show above="md">
+          <Center height="350px" className="hidden lg:block px-5">
+            <Divider orientation="vertical" />
+          </Center>
+        </Show>
+        <Hide above="md">
+          <Divider className="my-10" />
+        </Hide>
+        <Stack width="full">
+          <UserPassword />
+        </Stack>
+      </section>
     </Container>
   );
 };

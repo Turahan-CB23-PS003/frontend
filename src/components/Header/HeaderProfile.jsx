@@ -16,17 +16,19 @@ import {
 const HeaderProfile = ({ userImage, userName }) => {
   return (
     <div className="flex items-center">
-      <Button className="mr-3" variant="outline">
-        <LuLayoutDashboard />
-        <p className="ml-1">Dashboard</p>
-      </Button>
+      <Link to="/dashboard">
+        <Button className="mr-3" variant="outline">
+          <LuLayoutDashboard />
+          <p className="ml-1">Dashboard</p>
+        </Button>
+      </Link>
       <Popover>
         <PopoverTrigger>
           <Button variant="ghost" px={0} py={0}>
             <img
               src={userImage}
               alt="User"
-              className="w-10 h-10 rounded-full outline outline-slate-200"
+              className="w-10 h-10 rounded-full outline outline-slate-200 object-cover"
             />
           </Button>
         </PopoverTrigger>

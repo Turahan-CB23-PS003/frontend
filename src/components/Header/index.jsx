@@ -1,6 +1,6 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Container, Divider, Button, useDisclosure } from "@chakra-ui/react";
-import { useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import HeaderDrawer from "./HeaderDrawer";
 import HeaderLinks from "./HeaderLinks";
@@ -11,6 +11,7 @@ import { GlobalContext } from "../../App";
 
 const Header = () => {
   const { userData } = useContext(GlobalContext);
+  const [isLoading, setIsLoading] = useState(true);
   const userImage = `${GLOBAL_ROUTE}/img/${
     userData.image
       ? `users/${userData.image}`
@@ -28,11 +29,28 @@ const Header = () => {
   const LinkStyle =
     "text-lg mx-4 font-semibold transition-all ease-in duration-100";
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, [userData.name]);
+
   const NavigationLg = () => {
     if (userData.name) {
       return (
         <div className="hidden lg:block">
           <HeaderProfile userImage={userImage} userName={userData.name} />
+        </div>
+      );
+    }
+    if (isLoading) {
+      return (
+        <div className="hidden lg:block">
+          <Button
+            isDisabled={true}
+            variant="outline"
+            size="sm"
+            isLoading={true}
+            loadingText="Memuat..."
+          ></Button>
         </div>
       );
     }

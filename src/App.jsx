@@ -1,5 +1,5 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
-import { createContext, useMemo, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import GLOBAL_ROUTE from "./helpers/GlobalRoute";
@@ -10,43 +10,35 @@ import MealDetailPage from "./pages/MealDetailPage";
 import RetailersPage from "./pages/RetailersPage";
 import RetailerDetailPage from "./pages/RetailerDetailPage";
 import UserPage from "./pages/UserPage";
+import DashboardPage from "./pages/DashboardPage";
 import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
 
 const GlobalContext = createContext();
 
 const App = () => {
-  const userId = Cookies.get("user_id") ? Cookies.get("user_id") : null;
-  const userAccessToken = Cookies.get("user_accessToken")
-    ? Cookies.get("user_accessToken")
-    : null;
   const [userData, setUserData] = useState({});
-
   const [userIdToken, setUserIdToken] = useState({
-    userId: Cookies.get("user_id") ? Cookies.get("user_id") : null,
-    userAccessToken: Cookies.get("user_accessToken")
-      ? Cookies.get("user_accessToken")
-      : null,
+    userId: Cookies.get("user_id"),
+    userAccessToken: Cookies.get("user_accessToken"),
   });
 
-  const globalContextValue = useMemo(() => {
-    return {
-      userIdToken,
-      userData,
-      setUserIdToken,
-      setUserData,
-    };
-  }, [userIdToken, userData]);
+  const globalContextValue = {
+    userIdToken,
+    userData,
+    setUserIdToken,
+    setUserData,
+  };
 
   useEffect(() => {
     try {
       const getUserData = async () => {
-        if (userId && userAccessToken) {
+        if (userIdToken.userId && userIdToken.userAccessToken) {
           const response = await axios.get(
-            `${GLOBAL_ROUTE}/api/v1/users/${userId}`,
+            `${GLOBAL_ROUTE}/api/v1/users/${userIdToken.userId}`,
             {
               headers: {
-                Authorization: `Bearer ${userAccessToken}`,
+                Authorization: `Bearer ${userIdToken.userAccessToken}`,
               },
             },
           );
@@ -57,7 +49,7 @@ const App = () => {
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
-  }, [userId, userAccessToken]);
+  }, [userIdToken]);
 
   return (
     <GlobalContext.Provider value={globalContextValue}>
@@ -73,6 +65,7 @@ const App = () => {
               element={<RetailerDetailPage />}
             />
             <Route path="profile" element={<UserPage />} />
+            <Route path="dashboard" element={<DashboardPage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>

@@ -4,17 +4,17 @@ import { Container } from "@chakra-ui/react";
 const UserNoAuth = () => {
   return (
     <Container maxW={"6xl"}>
-      <section className="flex flex-col justify-center items-center pt-32">
-        <h1 className="text-4xl font-bold">You must login first</h1>
+      <section className="flex flex-col justify-center items-center pt-16">
+        <h1 className="text-4xl font-bold mb-5">Kamu harus login terlebih dahulu</h1>
         <p>
-          Go to{" "}
+          Pergi ke{" "}
           <Link
             to="/"
             className="font-semibold text-[#48AF4A] hover:text-[#368237]"
           >
             Home
           </Link>{" "}
-          or{" "}
+          atau{" "}
           <Link
             to="/"
             className="font-semibold text-[#48AF4A] hover:text-[#368237]"

@@ -2,9 +2,11 @@ import Cookies from "js-cookie";
 import { Button } from "@chakra-ui/react";
 import { GlobalContext } from "../../App";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
-  const { setUserIdToken } = useContext(GlobalContext);
+  const { setUserIdToken, setUserData } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const removeCookieHandler = () => {
     Cookies.remove("user_id");
@@ -13,6 +15,8 @@ const Logout = () => {
       userId: null,
       userAccessToken: null,
     });
+    setUserData({});
+    navigate("/");
   };
 
   return (
