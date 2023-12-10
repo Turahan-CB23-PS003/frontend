@@ -54,9 +54,16 @@ const Header = () => {
                 </HeaderPopover>
               </div>
               <div className="hidden md:block">
-                <Button as={Link} to="login" className="ml-3" variant="outline">
+              <ChakraLink as={Link} to="login">
+                <Button className="ml-3" variant="outline">
                   Login
                 </Button>
+              </ChakraLink>
+                <ChakraLink as={Link} to="register">
+                  <Button className="ml-3" variant="outline">
+                    Daftar
+                  </Button>
+                </ChakraLink>
               </div>
               <div ref={btnRef} onClick={onOpen} className="block md:hidden">
                 <Button variant="ghost">
