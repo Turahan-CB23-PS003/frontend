@@ -68,7 +68,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white z-50">
-      <div className="shadow-sm py-3 md:py-5 px-2 md:px-0">
+      <div className="shadow-sm py-1 md:py-5 px-2 md:px-0">
         <Container maxW={"6xl"}>
           <nav className="flex justify-between">
             <section className="flex justify-center items-center">
@@ -83,8 +83,8 @@ const Header = () => {
                       key={link.label}
                       className={({ isActive }) =>
                         isActive
-                          ? `${LinkStyle} text-[#48AF4A]`
-                          : `${LinkStyle} hover:text-[#48AF4A]`
+                          ? `${LinkStyle} text-[#38A169]`
+                          : `${LinkStyle} hover:text-[#2F855A]`
                       }
                     >
                       {link.label}
@@ -114,8 +114,8 @@ const Header = () => {
                         key={link.label}
                         className={({ isActive }) =>
                           isActive
-                            ? `${LinkStyle} text-lg mt-5 font-semibold text-[#48AF4A]`
-                            : `${LinkStyle} text-lg mt-5 font-semibold hover:text-[#48AF4A]`
+                            ? `${LinkStyle} text-lg mt-5 font-semibold text-[#38A169]`
+                            : `${LinkStyle} text-lg mt-5 font-semibold hover:text-[#2F855A]`
                         }
                       >
                         {link.label}

@@ -10,14 +10,14 @@ const UserNoAuth = () => {
           Pergi ke{" "}
           <Link
             to="/"
-            className="font-semibold text-[#48AF4A] hover:text-[#368237]"
+            className="font-semibold text-[#38A169] hover:text-[#368237]"
           >
             Home
           </Link>{" "}
           atau{" "}
           <Link
             to="/"
-            className="font-semibold text-[#48AF4A] hover:text-[#368237]"
+            className="font-semibold text-[#38A169] hover:text-[#368237]"
           >
             Login
           </Link>

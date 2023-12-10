@@ -97,7 +97,7 @@ const MealsCard = ({
             ></span>
           </span>
           <Link to={`/retailers/${retailer.id}`}>
-            <p className="text-lg text-white font-semibold drop-shadow-lg hover:text-[#48AF4A] transition-all ease-in duration-100">
+            <p className="text-lg text-white font-semibold drop-shadow-lg hover:text-[#2F855A] transition-all ease-in duration-100">
               {retailer.name}
             </p>
           </Link>
@@ -106,7 +106,7 @@ const MealsCard = ({
       <CardBody>
         <Stack spacing="3">
           <Link to={`/meals/${id}`}>
-            <h3 className="font-semibold text-lg hover:text-[#48AF4A] transition-all ease-in duration-100">
+            <h3 className="font-semibold text-lg hover:text-[#2F855A] transition-all ease-in duration-100">
               {name}
             </h3>
           </Link>

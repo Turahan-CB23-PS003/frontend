@@ -116,14 +116,14 @@ const RetailerDetail = ({ retailerId }) => {
         >
           <BreadcrumbItem>
             <Link to="/retailers">
-              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#2F855A]">
                 Cari Tempat
               </h4>
             </Link>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
             <Link to="./">
-              <h4 className="text-xs lg:text-lg font-semibold text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold text-[#38A169]">
                 {retailerData.name}
               </h4>
             </Link>

@@ -6,9 +6,7 @@ const MainLayout = () => {
   return (
     <section className="flex flex-col min-h-screen">
       <Header />
-      <section className="pt-20">
-        <Outlet />
-      </section>
+      <Outlet />
       <section className="mt-auto">
         <Footer />
       </section>

@@ -11,6 +11,7 @@ import RetailersPage from "./pages/RetailersPage";
 import RetailerDetailPage from "./pages/RetailerDetailPage";
 import UserPage from "./pages/UserPage";
 import DashboardPage from "./pages/DashboardPage";
+import AboutUs from "./pages/AboutUs";
 import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
 
@@ -67,6 +68,7 @@ const App = () => {
             <Route path="profile" element={<UserPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

@@ -124,7 +124,7 @@ const User = () => {
         Sesuaikan profil dan passwordmu atau pergi ke{" "}
         <Link
           to="/dashboard"
-          className="font-semibold text-[#48AF4A] hover:text-[#368237]"
+          className="font-semibold text-[#38A169] hover:text-[#368237]"
         >
           Dashboard Tempat
         </Link>

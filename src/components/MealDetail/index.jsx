@@ -126,14 +126,14 @@ const MealDetail = ({ mealId }) => {
         >
           <BreadcrumbItem>
             <Link to="/meals">
-              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold hover:text-[#2F855A]">
                 Cari Makanan
               </h4>
             </Link>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
             <Link to={`/meals/${mealData.id}`}>
-              <h4 className="text-xs lg:text-lg font-semibold text-[#48AF4A]">
+              <h4 className="text-xs lg:text-lg font-semibold text-[#38A169]">
                 {mealData.name}
               </h4>
             </Link>
@@ -162,7 +162,7 @@ const MealDetail = ({ mealId }) => {
             ></span>
           </span>
           <Link to={`/retailers/${retailerData.id}`}>
-            <p className="text-2xl font-semibold drop-shadow-lg hover:text-[#48AF4A] transition-all ease-in duration-100">
+            <p className="text-2xl font-semibold drop-shadow-lg hover:text-[#2F855A] transition-all ease-in duration-100">
               {retailerData.name}
             </p>
           </Link>
