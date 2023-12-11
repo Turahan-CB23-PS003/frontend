@@ -7,6 +7,11 @@ This repository contains the frontend for a website aimed at providing informati
 ## Status
 [![pages-build-deployment](https://github.com/Turahan-CB23-PS003/frontend/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Turahan-CB23-PS003/frontend/actions/workflows/pages/pages-build-deployment)
 
+## Deployments
+
+- Production: [https://turahan.ziakode.com/](https://turahan.ziakode.com/)
+- Development: [https://turahan-cb23-ps003.github.io/frontend/](https://turahan-cb23-ps003.github.io/frontend)
+
 ## Getting Started
 
 ### Prerequisites
