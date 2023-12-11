@@ -154,7 +154,7 @@ const Login = () => {
                   </InputLeftElement>
                   <Input
                     type="email"
-                    placeholder="email address"
+                    placeholder="Email Address"
                     name="email"
                     value={sendData.email}
                     onChange={inputChangeHandler}
@@ -169,7 +169,7 @@ const Login = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     name="password"
-                    placeholder="password"
+                    placeholder="Password"
                     value={sendData.password}
                     onChange={inputChangeHandler}
                   />

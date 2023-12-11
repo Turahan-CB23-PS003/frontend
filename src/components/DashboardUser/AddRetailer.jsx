@@ -48,8 +48,35 @@ const AddRetailer = ({ refresher, setRefresher }) => {
     description: "",
   });
 
+  const validateInput = ({
+    name = sendData.name,
+    status = sendData.status,
+    openTime = sendData.openTime,
+    closeTime = sendData.closeTime,
+    location = sendData.location,
+    gmaps = sendData.gmaps,
+    contact = sendData.contact,
+    description = sendData.description,
+  }) => {
+    if (
+      name &&
+      status &&
+      openTime &&
+      closeTime &&
+      location &&
+      gmaps &&
+      contact &&
+      description
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const inputChangeHandler = (event) => {
     const { name, value } = event.target;
+    const isDataValid = validateInput({ [name]: value });
+    setIsDataValid(isDataValid);
     const isTime = name === "openTime" || name === "closeTime";
     setSendData((prevState) => {
       return {
@@ -57,9 +84,6 @@ const AddRetailer = ({ refresher, setRefresher }) => {
         [name]: isTime ? `${value}:00` : value,
       };
     });
-    const validCheck = Object.values(sendData).every((value) => value !== "");
-    console.log(sendData, validCheck);
-    setIsDataValid(validCheck);
   };
 
   const handleRadioChange = (value) => {
@@ -67,7 +91,6 @@ const AddRetailer = ({ refresher, setRefresher }) => {
       ...prevState,
       status: value,
     }));
-    console.log(sendData);
   };
 
   const handleFileInputChange = (event) => {

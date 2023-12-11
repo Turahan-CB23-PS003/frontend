@@ -25,7 +25,11 @@ const HeaderDrawer = ({
     if (userData.name) {
       return (
         <div className="my-6 ml-4">
-          <HeaderProfile userImage={userImage} userName={userData.name} />
+          <HeaderProfile
+            userImage={userImage}
+            userName={userData.name}
+            onClose={onClose}
+          />
         </div>
       );
     }
@@ -56,7 +60,9 @@ const HeaderDrawer = ({
       <DrawerContent>
         <DrawerCloseButton className="mt-3" />
         <DrawerHeader className="mt-3">
-          <FooterLogo />
+          <Link to="/" onClick={onClose}>
+            <FooterLogo />
+          </Link>
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
         <Divider />

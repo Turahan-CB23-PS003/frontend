@@ -65,8 +65,31 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
     return convertedTimeFormat;
   };
 
+  const validateInput = ({
+    name = sendData.name,
+    description = sendData.description,
+    price = sendData.price,
+    status = sendData.status,
+    dateProduced = sendData.dateProduced,
+    expiryDate = sendData.expiryDate,
+  }) => {
+    if (
+      name &&
+      description &&
+      price !== "" &&
+      status &&
+      dateProduced &&
+      expiryDate
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const inputChangeHandler = (event) => {
     const { name, value } = event.target;
+    const isDataValid = validateInput({ [name]: value });
+    setIsDataValid(isDataValid);
     const isDateTime = name === "dateProduced" || name === "expiryDate";
     let usedValue = value;
     if (name === "price") {
@@ -86,9 +109,6 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
         [name]: usedValue,
       };
     });
-    const validCheck = Object.values(sendData).every((value) => value !== "");
-    console.log(sendData, validCheck);
-    setIsDataValid(validCheck);
   };
 
   const handleRadioChange = (value) => {
@@ -96,7 +116,6 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
       ...prevState,
       status: value,
     }));
-    console.log(sendData);
   };
 
   const handleFileInputChange = (event) => {
@@ -293,7 +312,9 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
               min={0}
             />
           </InputGroup>
-          <p className="text-sm text-gray-600 mt-2">* Jika makanan gratis isi dengan 0</p>
+          <p className="text-sm text-gray-600 mt-2">
+            * Jika makanan gratis isi dengan 0
+          </p>
         </FormControl>
         <FormControl className="mb-5" isRequired>
           <InputGroup>

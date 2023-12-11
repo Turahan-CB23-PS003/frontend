@@ -1,4 +1,4 @@
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Container, Divider, Button, useDisclosure } from "@chakra-ui/react";
 import { useState, useRef, useContext, useEffect } from "react";
 import Hamburger from "hamburger-react";
@@ -21,11 +21,6 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
-  const location = useLocation();
-  const currentLink = location.pathname;
-
-  console.log(currentLink.substring(1));
-
   const LinkStyle =
     "text-lg mx-4 font-semibold transition-all ease-in duration-100";
 
@@ -37,7 +32,11 @@ const Header = () => {
     if (userData.name) {
       return (
         <div className="hidden lg:block">
-          <HeaderProfile userImage={userImage} userName={userData.name} />
+          <HeaderProfile
+            userImage={userImage}
+            userName={userData.name}
+            onClose={onClose}
+          />
         </div>
       );
     }

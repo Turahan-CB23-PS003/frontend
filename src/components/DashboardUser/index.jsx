@@ -44,7 +44,6 @@ const DashboardUser = () => {
       try {
         const response = await axios.get(`${GLOBAL_ROUTE}api/v1/retailers`);
         const data = response.data.data.retailers;
-        console.log(data);
         const filteredData = data.filter((retailer) => {
           return Number(retailer.admin_id) === Number(userId);
         });

@@ -13,11 +13,11 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 
-const HeaderProfile = ({ userImage, userName }) => {
+const HeaderProfile = ({ userImage, userName, onClose }) => {
   return (
     <div className="flex items-center">
       <Link to="/dashboard">
-        <Button className="mr-3" variant="outline">
+        <Button className="mr-3" variant="outline" onClick={onClose}>
           <LuLayoutDashboard />
           <p className="ml-1">Dashboard</p>
         </Button>
@@ -42,12 +42,14 @@ const HeaderProfile = ({ userImage, userName }) => {
           </PopoverHeader>
           <PopoverBody>
             <div className="flex justify-center items-center">
-              <Link to="/profile">
+              <Link to="/profile" onClick={onClose}>
                 <Button className="mr-3" variant="outline" colorScheme="green">
                   Profile
                 </Button>
               </Link>
-              <Logout />
+              <div onClick={onClose}>
+                <Logout />
+              </div>
             </div>
           </PopoverBody>
         </PopoverContent>
@@ -59,6 +61,7 @@ const HeaderProfile = ({ userImage, userName }) => {
 HeaderProfile.propTypes = {
   userName: PropTypes.string.isRequired,
   userImage: PropTypes.string.isRequired,
+  onClose: PropTypes.func,
 };
 
 export default HeaderProfile;
