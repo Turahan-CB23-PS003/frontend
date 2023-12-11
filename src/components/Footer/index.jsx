@@ -34,9 +34,11 @@ const Footer = () => {
           spacing={6}
           className="flex flex-col items-center md:items-start"
         >
-          <Box className="flex items-center justify-center">
-            <FooterLogo color={useColorModeValue("gray.700", "white")} />
-          </Box>
+          <Link to="/">
+            <Box className="flex items-center justify-center">
+              <FooterLogo color={useColorModeValue("gray.700", "white")} />
+            </Box>
+          </Link>
           <Text fontSize={"sm"} className="text-center md:text-start lg:hidden">
             {shortenedText}
           </Text>

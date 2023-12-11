@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import HeaderProfile from "./HeaderProfile";
+import { Link } from "react-router-dom";
 
 const HeaderDrawer = ({
   isOpen,
@@ -30,12 +31,16 @@ const HeaderDrawer = ({
     }
     return (
       <div className="my-6 ml-4">
-        <Button className="ml-3" variant="outline">
-          Login
-        </Button>
-        <Button className="ml-3" variant="outline">
-          Register
-        </Button>
+        <Link to="/login">
+          <Button className="ml-3" variant="outline">
+            Login
+          </Button>
+        </Link>
+        <Link to="/register">
+          <Button className="ml-3" variant="outline">
+            Register
+          </Button>
+        </Link>
       </div>
     );
   };
