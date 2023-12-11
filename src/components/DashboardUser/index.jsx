@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Spinner,
 } from "@chakra-ui/react";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
@@ -17,13 +18,26 @@ import EditRetailer from "./EditRetailer";
 import EditMeal from "./EditMeal";
 import RetailersCard from "../Retailers/RetailersCard";
 import MealsCard from "../Meals/MealsCard";
+import UserNoAuth from "../User/UserNoAuth";
 
 const DashboardUser = () => {
   const { userIdToken } = useContext(GlobalContext);
-  const { userId } = userIdToken;
+  const { userId, userAccessToken } = userIdToken;
   const [retailersData, setRetailersData] = useState([]);
   const [mealsData, setMealsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [refresher, setRefresher] = useState(false);
+
+  const spinnerBegin = (handler) => {
+    if (isLoading) {
+      return <Spinner size="xs" />;
+    }
+    if (handler === "retailers") {
+      return retailersData.length;
+    } else if (handler === "meals") {
+      return mealsData.length;
+    }
+  };
 
   useEffect(() => {
     const getRetailersData = async () => {
@@ -35,6 +49,7 @@ const DashboardUser = () => {
           return Number(retailer.admin_id) === Number(userId);
         });
         setRetailersData(filteredData);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching retailers data:", error);
       }
@@ -49,12 +64,17 @@ const DashboardUser = () => {
           return Number(meal.retailer.admin_id) === Number(userId);
         });
         setMealsData(filteredData);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching meals data:", error);
       }
     };
     getMealsData();
   }, [userId, refresher]);
+
+  if (!userId || !userAccessToken) {
+    return <UserNoAuth />;
+  }
 
   return (
     <Container maxW="6xl" className="mt-10 md:mt-20 px-3">
@@ -68,7 +88,7 @@ const DashboardUser = () => {
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">
                 <h2 className="font-semibold text-xl">
-                  Total Tempat: {retailersData.length}
+                  Total Tempat: {spinnerBegin("retailers")}
                 </h2>
               </Box>
               <AccordionIcon />
@@ -85,7 +105,7 @@ const DashboardUser = () => {
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">
                 <h2 className="font-semibold text-xl">
-                  Total Makanan: {mealsData.length}
+                  Total Makanan: {spinnerBegin("meals")}
                 </h2>
               </Box>
               <AccordionIcon />

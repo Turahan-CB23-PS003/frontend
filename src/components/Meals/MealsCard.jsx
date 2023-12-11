@@ -39,10 +39,12 @@ const MealsCard = ({
     retailer.open_time,
   )} WIB - ${timeIndonesia(retailer.close_time)} WIB`;
 
-  const convertedPrice = `Rp${String(numeral(price).format("0,0")).replace(
-    ",",
-    ".",
-  )}`;
+  const convertedPrice = (price) => {
+    if (price <= 0) {
+      return "Gratis";
+    }
+    return `Rp${String(numeral(price).format("0,0")).replace(",", ".")}`;
+  };
 
   const statusColor =
     retailer.status === "active"
@@ -138,7 +140,7 @@ const MealsCard = ({
         </div>
         <div className="flex items-center justify-start">
           <AiOutlineDollar />
-          <p className="text-lg font-medium ml-2">{convertedPrice}</p>
+          <p className="text-lg font-medium ml-2">{convertedPrice(price)}</p>
         </div>
       </CardFooter>
     </ChakraCard>

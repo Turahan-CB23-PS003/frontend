@@ -4,8 +4,11 @@ import MealsCard from "../Meals/MealsCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import GLOBAL_ROUTE from "../../helpers/GlobalRoute";
+import { useContext } from "react";
+import { GlobalContext } from "../../App";
 
 const FirstMeals = () => {
+  const { userIdToken } = useContext(GlobalContext);
   const [mealsData, setMealsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,7 +49,15 @@ const FirstMeals = () => {
       <div className="block md:flex justify-between items-end mb-6">
         <div className="mb-5 md:mb-0">
           <h1 className="font-bold text-3xl md:text-5xl mb-3">Cari Makanan!</h1>
-          <p className="text-lg">Tunggu apa lagi? Cari makanan di sini</p>
+          <p className="text-lg">
+            Tunggu apa lagi? Cari makanan atau{" "}
+            <Link
+              to={userIdToken.userAccessToken ? "/dashboard" : "/login"}
+              className="text-[#38A169] hover:text-[#2F855A]"
+            >
+              daftarkan tempat di sini
+            </Link>
+          </p>
         </div>
         <Link to="/meals">
           <Button colorScheme="green">Lihat Semua</Button>

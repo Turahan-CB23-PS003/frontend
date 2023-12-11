@@ -56,12 +56,16 @@ const Header = () => {
     }
     return (
       <div className="hidden lg:block">
-        <Button className="ml-3" variant="outline">
-          Login
-        </Button>
-        <Button className="ml-3" variant="outline">
-          Register
-        </Button>
+        <Link to="/login">
+          <Button className="ml-3" variant="outline">
+            Login
+          </Button>
+        </Link>
+        <Link to="/register">
+          <Button className="ml-3" variant="outline">
+            Register
+          </Button>
+        </Link>
       </div>
     );
   };
@@ -73,9 +77,9 @@ const Header = () => {
           <nav className="flex justify-between">
             <section className="flex justify-center items-center">
               <Link to="/">
-                <FooterLogo className="mr-10" />
+                <FooterLogo />
               </Link>
-              <div className="hidden lg:flex justify-center items-center">
+              <div className="hidden lg:flex justify-center items-center ml-8">
                 {HeaderLinks.map((link) => {
                   return (
                     <NavLink

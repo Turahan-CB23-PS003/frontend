@@ -229,6 +229,7 @@ const AddMeal = ({ retailers, refresher, setRefresher }) => {
               min={0}
             />
           </InputGroup>
+          <p className="text-sm text-gray-600 mt-2">* Jika makanan gratis isi dengan 0</p>
         </FormControl>
         <FormControl className="mb-5" isRequired>
           <InputGroup>
