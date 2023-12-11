@@ -122,7 +122,7 @@ const AddMeal = ({ retailers, refresher, setRefresher }) => {
       }
 
       const response = await axios.post(
-        `${GLOBAL_ROUTE}/api/v1/meals/${selectedRetailer}`,
+        `${GLOBAL_ROUTE}api/v1/meals/${selectedRetailer}`,
         formData,
         {
           headers: {

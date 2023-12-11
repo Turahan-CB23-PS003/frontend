@@ -37,7 +37,7 @@ const App = () => {
       const getUserData = async () => {
         if (userIdToken.userId && userIdToken.userAccessToken) {
           const response = await axios.get(
-            `${GLOBAL_ROUTE}/api/v1/users/${userIdToken.userId}`,
+            `${GLOBAL_ROUTE}api/v1/users/${userIdToken.userId}`,
             {
               headers: {
                 Authorization: `Bearer ${userIdToken.userAccessToken}`,

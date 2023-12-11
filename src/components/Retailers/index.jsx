@@ -38,7 +38,7 @@ const Retailers = () => {
   useEffect(() => {
     const getRetailersData = async () => {
       try {
-        const response = await axios.get(`${GLOBAL_ROUTE}/api/v1/retailers`);
+        const response = await axios.get(`${GLOBAL_ROUTE}api/v1/retailers`);
         const data = response.data;
         setIsLoading(false);
         setRetailersData(data.data.retailers);

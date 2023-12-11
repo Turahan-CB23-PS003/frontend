@@ -114,7 +114,7 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
     setButtonLoading(true);
     try {
       const response = await axios.delete(
-        `${GLOBAL_ROUTE}/api/v1/meals/${selectedMeal}`,
+        `${GLOBAL_ROUTE}api/v1/meals/${selectedMeal}`,
         {
           headers: {
             Authorization: `Bearer ${userAccessToken}`,
@@ -172,7 +172,7 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
       }
 
       const response = await axios.patch(
-        `${GLOBAL_ROUTE}/api/v1/meals/${selectedMeal}`,
+        `${GLOBAL_ROUTE}api/v1/meals/${selectedMeal}`,
         formData,
         {
           headers: {
@@ -235,7 +235,7 @@ const EditMeal = ({ meals, refresher, setRefresher }) => {
       expiryDate: revertDateTime(filteredMeal.expiry_date),
     });
     if (filteredMeal.image) {
-      setImageSrc(`${GLOBAL_ROUTE}/img/meals/${filteredMeal.image}`);
+      setImageSrc(`${GLOBAL_ROUTE}img/meals/${filteredMeal.image}`);
     }
     setIsDataValid(true);
   };

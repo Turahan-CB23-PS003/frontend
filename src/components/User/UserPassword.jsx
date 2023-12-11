@@ -68,7 +68,7 @@ const UserPassword = () => {
     setButtonLoading(true);
     try {
       const response = await axios.patch(
-        `${GLOBAL_ROUTE}/api/v1/users/${userId}/password`,
+        `${GLOBAL_ROUTE}api/v1/users/${userId}/password`,
         userInput,
         {
           headers: {

@@ -26,7 +26,7 @@ const MealDetail = ({ mealId }) => {
     const getMealData = async () => {
       try {
         const response = await axios.get(
-          `${GLOBAL_ROUTE}/api/v1/meals/${mealId}`,
+          `${GLOBAL_ROUTE}api/v1/meals/${mealId}`,
         );
         const data = response.data;
         setMealData(data.data.meals);
@@ -40,7 +40,7 @@ const MealDetail = ({ mealId }) => {
     const getRetailerData = async () => {
       try {
         const response = await axios.get(
-          `${GLOBAL_ROUTE}/api/v1/retailers/${mealData.retailer_id}`,
+          `${GLOBAL_ROUTE}api/v1/retailers/${mealData.retailer_id}`,
         );
         const data = response.data;
         setRetailerData(data.data.retailers);
@@ -53,11 +53,11 @@ const MealDetail = ({ mealId }) => {
     getRetailerData();
   }, [mealData.retailer_id, mealId]);
 
-  const mealImage = `${GLOBAL_ROUTE}/img/meals/${
+  const mealImage = `${GLOBAL_ROUTE}img/meals/${
     mealData.image ? mealData.image : "pexels-engin-akyurt-1907642.jpg"
   }`;
 
-  const retailerImage = `${GLOBAL_ROUTE}/img/${
+  const retailerImage = `${GLOBAL_ROUTE}img/${
     retailerData.image
       ? `retailers/${retailerData.image}`
       : "meals/pexels-engin-akyurt-1907642.jpg"
@@ -191,12 +191,12 @@ const MealDetail = ({ mealId }) => {
           >
             <section className="mb-1 lg:mb-0 lg:mr-5 flex items-center">
               <MdOutlineLocationOn />
-              <p className="text-lg ml-1">{retailerData.location}</p>
+              <p className="text-lg font-medium ml-1">{retailerData.location}</p>
             </section>
           </Link>
           <section className="mb-1 lg:mb-0 lg:mr-5 flex items-center">
             <IoIosContact />
-            <p className="text-lg ml-1">{retailerData.contact}</p>
+            <p className="text-lg font-medium ml-1">{retailerData.contact}</p>
           </section>
         </section>
         {description(mealData.description)}

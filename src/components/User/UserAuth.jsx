@@ -32,8 +32,8 @@ const UserAuth = () => {
 
   return (
     <Container maxW={"6xl"}>
-      <section className="flex flex-col justify-center items-start md:items-center pt-16">
-        <h1 className="text-4xl font-bold mb-5">
+      <section className="flex flex-col justify-center items-center pt-60">
+        <h1 className="text-4xl text-center font-bold mb-5">
           Kamu harus logout terlebih dahulu
         </h1>
         <p>

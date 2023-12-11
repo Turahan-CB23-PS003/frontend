@@ -25,11 +25,11 @@ const MealsCard = ({
   status,
   retailer,
 }) => {
-  const mealImage = `${GLOBAL_ROUTE}/img/meals/${
+  const mealImage = `${GLOBAL_ROUTE}img/meals/${
     image ? image : "pexels-engin-akyurt-1907642.jpg"
   }`;
 
-  const retailerImage = `${GLOBAL_ROUTE}/img/${
+  const retailerImage = `${GLOBAL_ROUTE}img/${
     retailer.image
       ? `retailers/${retailer.image}`
       : "meals/pexels-engin-akyurt-1907642.jpg"

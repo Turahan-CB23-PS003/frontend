@@ -9,7 +9,7 @@ const convertBlobToImage = (image) => {
 
 const routeImage = (checker, image) => {
   if (!checker) {
-    return `${GLOBAL_ROUTE}/assets/img/pexels-engin-akyurt-1907642.jpg`;
+    return `${GLOBAL_ROUTE}assets/img/pexels-engin-akyurt-1907642.jpg`;
   }
 
   return convertBlobToImage(image);

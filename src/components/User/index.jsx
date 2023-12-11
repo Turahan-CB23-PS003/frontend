@@ -77,7 +77,7 @@ const User = () => {
       }
 
       const response = await axios.patch(
-        `${GLOBAL_ROUTE}/api/v1/users/${userId}`,
+        `${GLOBAL_ROUTE}api/v1/users/${userId}`,
         formData,
         {
           headers: {
@@ -112,9 +112,9 @@ const User = () => {
     if (imageSrc) {
       return imageSrc;
     } else if (userData.image) {
-      return `${GLOBAL_ROUTE}/img/users/${userData.image}`;
+      return `${GLOBAL_ROUTE}img/users/${userData.image}`;
     }
-    return `${GLOBAL_ROUTE}/img/meals/pexels-engin-akyurt-1907642.jpg`;
+    return `${GLOBAL_ROUTE}img/meals/pexels-engin-akyurt-1907642.jpg`;
   };
 
   return (
@@ -204,12 +204,12 @@ const User = () => {
             </HStack>
           </Stack>
         </Stack>
-        <Show above="md">
-          <Center height="350px" className="hidden lg:block px-5">
+        <Show above="lg">
+          <Center height="350px" className="px-5">
             <Divider orientation="vertical" />
           </Center>
         </Show>
-        <Hide above="md">
+        <Hide above="lg">
           <Divider className="my-10" />
         </Hide>
         <Stack width="full">

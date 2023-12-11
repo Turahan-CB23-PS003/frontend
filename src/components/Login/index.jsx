@@ -72,7 +72,7 @@ const Login = () => {
   const handleLoginUser = async () => {
     setButtonLoading(true);
     try {
-      const response = await axios.post(`${GLOBAL_ROUTE}/api/v1/login`, {
+      const response = await axios.post(`${GLOBAL_ROUTE}api/v1/login`, {
         email: sendData.email,
         password: sendData.password,
       });
@@ -98,7 +98,7 @@ const Login = () => {
       if (status) {
         const { id, accessToken } = response.data.data.users;
         Cookies.set("user_id", id);
-        Cookies.set("user_access_token", accessToken);
+        Cookies.set("user_accessToken", accessToken);
         setUserIdToken({
           userId: id,
           userAccessToken: accessToken,
@@ -173,7 +173,7 @@ const Login = () => {
                     value={sendData.password}
                     onChange={inputChangeHandler}
                   />
-                  <InputRightElement width="5.7rem">
+                  <InputRightElement className="mr-2">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
                       {showPassword ? <FaEye /> : <FaEyeSlash />}
                     </Button>

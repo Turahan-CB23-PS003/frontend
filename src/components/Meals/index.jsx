@@ -39,7 +39,7 @@ const Meals = () => {
   useEffect(() => {
     const getMealsData = async () => {
       try {
-        const response = await axios.get(`${GLOBAL_ROUTE}/api/v1/meals`);
+        const response = await axios.get(`${GLOBAL_ROUTE}api/v1/meals`);
         const data = response.data;
         setIsLoading(false);
         setMealsData(data.data.meals);

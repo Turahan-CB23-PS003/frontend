@@ -42,7 +42,7 @@ const DashboardUser = () => {
   useEffect(() => {
     const getRetailersData = async () => {
       try {
-        const response = await axios.get(`${GLOBAL_ROUTE}/api/v1/retailers`);
+        const response = await axios.get(`${GLOBAL_ROUTE}api/v1/retailers`);
         const data = response.data.data.retailers;
         console.log(data);
         const filteredData = data.filter((retailer) => {
@@ -58,7 +58,7 @@ const DashboardUser = () => {
 
     const getMealsData = async () => {
       try {
-        const response = await axios.get(`${GLOBAL_ROUTE}/api/v1/meals`);
+        const response = await axios.get(`${GLOBAL_ROUTE}api/v1/meals`);
         const data = response.data.data.meals;
         const filteredData = data.filter((meal) => {
           return Number(meal.retailer.admin_id) === Number(userId);
@@ -83,7 +83,7 @@ const DashboardUser = () => {
         <p className="text-lg">Buat dan atur tempat dan makananmu di sini</p>
       </div>
       <Accordion allowMultiple>
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <AccordionItem>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">

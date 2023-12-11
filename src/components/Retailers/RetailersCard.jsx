@@ -26,7 +26,7 @@ const RetailersCard = ({
   contact,
   image,
 }) => {
-  const retailerImage = `${GLOBAL_ROUTE}/img/${
+  const retailerImage = `${GLOBAL_ROUTE}img/${
     image ? `retailers/${image}` : "meals/pexels-engin-akyurt-1907642.jpg"
   }`;
 

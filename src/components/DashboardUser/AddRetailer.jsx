@@ -93,7 +93,7 @@ const AddRetailer = ({ refresher, setRefresher }) => {
       }
 
       const response = await axios.post(
-        `${GLOBAL_ROUTE}/api/v1/retailers`,
+        `${GLOBAL_ROUTE}api/v1/retailers`,
         formData,
         {
           headers: {

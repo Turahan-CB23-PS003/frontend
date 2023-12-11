@@ -110,7 +110,7 @@ const Register = () => {
       }
 
       const response = await axios.post(
-        `${GLOBAL_ROUTE}/api/v1/register`,
+        `${GLOBAL_ROUTE}api/v1/register`,
         formData,
       );
       const status = response.data.status === "success";
@@ -219,7 +219,7 @@ const Register = () => {
                     value={sendData.password}
                     onChange={inputChangeHandler}
                   />
-                  <InputRightElement width="5.7rem">
+                  <InputRightElement className="mr-2">
                     <Button
                       h="1.75rem"
                       size="sm"
@@ -242,7 +242,7 @@ const Register = () => {
                     value={sendData.passwordConf}
                     onChange={inputChangeHandler}
                   />
-                  <InputRightElement width="5.7rem">
+                  <InputRightElement className="mr-2">
                     <Button
                       h="1.75rem"
                       size="sm"

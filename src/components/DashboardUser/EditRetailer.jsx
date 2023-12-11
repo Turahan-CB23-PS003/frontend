@@ -86,7 +86,7 @@ const EditRetailer = ({ retailers, refresher, setRefresher }) => {
     setButtonLoading(true);
     try {
       const response = await axios.delete(
-        `${GLOBAL_ROUTE}/api/v1/retailers/${selectedRetailer}`,
+        `${GLOBAL_ROUTE}api/v1/retailers/${selectedRetailer}`,
         {
           headers: {
             Authorization: `Bearer ${userAccessToken}`,
@@ -146,7 +146,7 @@ const EditRetailer = ({ retailers, refresher, setRefresher }) => {
       }
 
       const response = await axios.patch(
-        `${GLOBAL_ROUTE}/api/v1/retailers/${selectedRetailer}`,
+        `${GLOBAL_ROUTE}api/v1/retailers/${selectedRetailer}`,
         formData,
         {
           headers: {
@@ -211,7 +211,7 @@ const EditRetailer = ({ retailers, refresher, setRefresher }) => {
       description: filteredRetailer.description,
     });
     if (filteredRetailer.image) {
-      setImageSrc(`${GLOBAL_ROUTE}/img/retailers/${filteredRetailer.image}`);
+      setImageSrc(`${GLOBAL_ROUTE}img/retailers/${filteredRetailer.image}`);
     }
     setIsDataValid(true);
   };

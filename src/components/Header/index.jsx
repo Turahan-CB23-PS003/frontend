@@ -12,7 +12,7 @@ import { GlobalContext } from "../../App";
 const Header = () => {
   const { userData } = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(true);
-  const userImage = `${GLOBAL_ROUTE}/img/${
+  const userImage = `${GLOBAL_ROUTE}img/${
     userData.image
       ? `users/${userData.image}`
       : "meals/pexels-engin-akyurt-1907642.jpg"
