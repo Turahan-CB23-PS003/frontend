@@ -31,12 +31,12 @@ const HeaderDrawer = ({
     }
     return (
       <div className="my-6 ml-4">
-        <Link to="/login">
+        <Link to="/login" onClick={onClose}>
           <Button className="ml-3" variant="outline">
             Login
           </Button>
         </Link>
-        <Link to="/register">
+        <Link to="/register" onClick={onClose}>
           <Button className="ml-3" variant="outline">
             Register
           </Button>
