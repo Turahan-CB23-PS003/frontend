@@ -21,6 +21,7 @@ const RetailerDetail = ({ retailerId }) => {
   const [mealsData, setMealsData] = useState([]);
   const [retailerData, setRetailerData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const getRetailerData = async () => {
@@ -29,8 +30,14 @@ const RetailerDetail = ({ retailerId }) => {
           `${GLOBAL_ROUTE}api/v1/retailers/${retailerId}`,
         );
         const data = response.data;
-        setRetailerData(data.data.retailers);
-        setIsLoading(false);
+        if (data.status === "fail") {
+          setNotFound(true);
+          setIsLoading(false);
+        } else if (data.status === "success") {
+          setNotFound(false);
+          setRetailerData(data.data.retailers);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.error("Error fetching retailer data:", error);
       }
@@ -111,7 +118,9 @@ const RetailerDetail = ({ retailerId }) => {
       <section>
         <Breadcrumb
           spacing="8px"
-          separator={<h4 className="text-xs lg:text-lg font-semibold">{"•"}</h4>}
+          separator={
+            <h4 className="text-xs lg:text-lg font-semibold">{"•"}</h4>
+          }
           className="mb-4"
         >
           <BreadcrumbItem>
@@ -151,7 +160,9 @@ const RetailerDetail = ({ retailerId }) => {
           >
             <section className="mb-1 lg:mb-0 lg:mr-5 flex items-center">
               <MdOutlineLocationOn />
-              <p className="text-lg font-medium ml-1">{retailerData.location}</p>
+              <p className="text-lg font-medium ml-1">
+                {retailerData.location}
+              </p>
             </section>
           </Link>
           <section className="mb-1 lg:mb-0 lg:mr-5 flex items-center">
@@ -167,11 +178,30 @@ const RetailerDetail = ({ retailerId }) => {
     );
   };
 
-  return (
-    <Container maxW={"6xl"} className="mt-10 md:mt-20 px-3">
-      {isLoading ? <Loading /> : <Component />}
-    </Container>
-  );
+  const setReturn = () => {
+    if (!notFound && !isLoading && retailerData.id) {
+      return (
+        <Container maxW={"6xl"} className="mt-10 md:mt-20 px-3">
+          <Component />
+        </Container>
+      );
+    } else if (notFound && !isLoading) {
+      return (
+        <Container maxW={"6xl"} pt={20} centerContent>
+          <h1 className="text-9xl font-bold">404</h1>
+          <p>Not Found</p>
+        </Container>
+      );
+    } else if (isLoading) {
+      return (
+        <Container maxW={"6xl"} className="mt-10 md:mt-20 px-3">
+          <Loading />;
+        </Container>
+      );
+    }
+  };
+
+  return setReturn();
 };
 
 RetailerDetail.propTypes = {
