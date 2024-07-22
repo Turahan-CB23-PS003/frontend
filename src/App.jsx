@@ -1,4 +1,4 @@
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <GlobalContext.Provider value={globalContextValue}>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
@@ -74,7 +74,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </GlobalContext.Provider>
   );
 };
