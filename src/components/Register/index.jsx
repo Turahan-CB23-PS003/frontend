@@ -169,7 +169,7 @@ const Register = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <img src="logo.png" alt="logo" width="200px" />
+        <img src="/logo.png" alt="logo" width="200px" />
         <h1 className="text-3xl font-bold">Daftar ke Turahan</h1>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
