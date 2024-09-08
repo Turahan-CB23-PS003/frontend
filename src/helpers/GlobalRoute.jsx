@@ -1,3 +1,3 @@
-const GLOBAL_ROUTE = "https://backend-turahan.kamusmi.my.id/"
+const GLOBAL_ROUTE = "https://turahan.ziakode.com/"
 
 export default GLOBAL_ROUTE;
